@@ -1,7 +1,7 @@
 """Unit tests for the TabM ensemble primitives in egbinn.models.common."""
 
 import torch
-import torch.nn as nn
+from torch import nn
 
 from egbinn.models.common import (
     LinearEfficientEnsemble,

@@ -1,6 +1,6 @@
 __all__ = ["MLPRegression"]
 
-import torch.nn as nn
+from torch import nn
 
 from .common import MLP
 

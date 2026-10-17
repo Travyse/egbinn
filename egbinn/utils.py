@@ -1,4 +1,4 @@
-__all__ = ["seed_everything", "setup_logger", "resolve_device", "get_git_commit", "attach_stream_logging"]
+__all__ = ["attach_stream_logging", "get_git_commit", "resolve_device", "seed_everything", "setup_logger"]
 
 import logging
 import os

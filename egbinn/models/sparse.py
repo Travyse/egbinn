@@ -23,14 +23,14 @@ Index convention: edge ``e`` corresponds to ``W[gene_idx[e], cpg_idx[e]]`` of an
 ``nn.Linear(in_features, out_features)`` weight of shape ``(out_features, in_features)``.
 """
 
-__all__ = ["SparseMaskedLinear", "GatedSparseLinearLayer"]
+__all__ = ["GatedSparseLinearLayer", "SparseMaskedLinear"]
 
 import math
-from typing import Literal
+from typing import ClassVar, Literal
 
 import torch
-import torch.nn as nn
 import torch.nn.functional as F
+from torch import nn
 
 
 def _init_rsqrt_uniform_(x: torch.Tensor, d: int) -> torch.Tensor:
@@ -114,7 +114,7 @@ class SparseMaskedLinear(nn.Module):
     scale). Use :meth:`weight_sparse` for a memory-efficient COO view.
     """
 
-    __constants__ = ["in_features", "out_features", "n_edges"]
+    __constants__: ClassVar[list[str]] = ["in_features", "out_features", "n_edges"]
 
     cpg_idx: torch.Tensor
     gene_idx: torch.Tensor
@@ -479,7 +479,7 @@ class GatedSparseLinearLayer(nn.Module):
     :meth:`gate_weight_sparse` for memory-efficient COO views.
     """
 
-    __constants__ = [
+    __constants__: ClassVar[list[str]] = [
         "in_features",
         "out_features",
         "n_edges",

@@ -24,7 +24,7 @@ def test_load_data_csv(synthetic_betas, synthetic_metadata, tmp_path):
     meta_path = tmp_path / "metadata.csv"
     synthetic_metadata.to_csv(meta_path)
 
-    loader, scaler = load_data(
+    loader, _scaler = load_data(
         methylation_path=str(csv_path), metadata_path=str(meta_path), batch_size=16, data_format="csv"
     )
     batch = next(iter(loader))
@@ -47,7 +47,7 @@ def test_memmap_dataset(synthetic_betas, synthetic_metadata, tmp_path):
     meta_path = tmp_path / "metadata.csv"
     synthetic_metadata.to_csv(meta_path)
 
-    loader, scaler = load_data(
+    loader, _scaler = load_data(
         methylation_path=str(memmap_path), metadata_path=str(meta_path), batch_size=16, data_format="memmap"
     )
     batch = next(iter(loader))

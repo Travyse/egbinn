@@ -4,7 +4,7 @@ Each adapter handles the model-specific forward pass and loss computation so
 the training loop and inference stay model-agnostic.
 """
 
-__all__ = ["BaseAdapter", "MLPAdapter", "BINNAdapter", "EGBINNAdapter", "get_adapter"]
+__all__ = ["BINNAdapter", "BaseAdapter", "EGBINNAdapter", "MLPAdapter", "get_adapter"]
 
 import torch
 

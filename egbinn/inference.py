@@ -6,11 +6,11 @@ serialization helpers shared by training (save) and evaluation (load).
 """
 
 __all__ = [
-    "run_inference",
     "compute_metrics",
-    "per_dataset_metrics",
     "extract_label_scaler",
+    "per_dataset_metrics",
     "rebuild_label_scaler",
+    "run_inference",
 ]
 
 import logging
@@ -48,7 +48,7 @@ def rebuild_label_scaler(d):
     scaler.mean_ = np.asarray([d["mean_"]], dtype=np.float64)
     scaler.var_ = np.asarray([d.get("var_", 0.0)], dtype=np.float64)
     scaler.scale_ = np.asarray([d["scale_"]], dtype=np.float64)
-    setattr(scaler, "n_features_in_", 1)
+    setattr(scaler, "n_features_in_", 1)  # noqa: B010
     scaler.n_samples_seen_ = int(d.get("n_samples_seen_", 0))
     return scaler
 

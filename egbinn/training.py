@@ -20,7 +20,7 @@ from time import time
 
 import numpy as np
 import torch
-import torch.nn as nn
+from torch import nn
 from tqdm import tqdm
 
 from . import __version__ as PACKAGE_VERSION
@@ -132,7 +132,7 @@ def build_model(config, input_dim, mask_dir=None):
             dropout=params.get("dropout", 0.0),
         )
 
-    from .models import BINNRegression, EGBINN
+    from .models import EGBINN, BINNRegression
 
     stage_configs = params.get("stages", [])
     if not stage_configs:

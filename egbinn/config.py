@@ -1,4 +1,4 @@
-__all__ = ["AttrDict", "load_config", "config_from_dict", "to_plain_dict", "validate_config"]
+__all__ = ["AttrDict", "config_from_dict", "load_config", "to_plain_dict", "validate_config"]
 
 import yaml
 
@@ -87,8 +87,7 @@ def validate_config(config, require_train_paths=True):
         has_train_meta = config.data.get("train_metadata_path") or config.data.get("metadata_path")
         if not has_train_meta:
             raise ValueError(
-                "Config data section is missing required key 'data.metadata_path' "
-                "(or 'data.train_metadata_path')."
+                "Config data section is missing required key 'data.metadata_path' (or 'data.train_metadata_path')."
             )
         if not config.data.get("train_methylation_path"):
             raise ValueError("Config data section is missing required key 'data.train_methylation_path'.")

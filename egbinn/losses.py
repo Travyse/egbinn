@@ -1,4 +1,4 @@
-__all__ = ["standard_huber_loss", "ensemble_huber_loss"]
+__all__ = ["ensemble_huber_loss", "standard_huber_loss"]
 
 import torch.nn.functional as F
 

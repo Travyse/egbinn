@@ -1,21 +1,20 @@
 __all__ = [
-    "LowRankLinear",
-    "BaseMLPModel",
     "MLP",
-    "NLinear",
+    "BaseMLPModel",
     "LinearEfficientEnsemble",
+    "LowRankLinear",
+    "NLinear",
     "ScaleEnsemble",
     "TabMMLP",
-    "make_efficient_ensemble",
     "init_random_signs_",
     "init_rsqrt_uniform_",
+    "make_efficient_ensemble",
 ]
 
 from typing import Literal
 
 import torch
-import torch.nn as nn
-from torch import Tensor
+from torch import Tensor, nn
 from torch.nn import Parameter
 
 
@@ -287,7 +286,7 @@ class TabMMLP(nn.Module):
                 layer = first_block
                 running_in = first_block.out_features
             else:
-                layer = nn.Linear(running_in, d_block)
+                layer = nn.Linear(running_in, d_block)  # ty: ignore[invalid-argument-type]
                 running_in = d_block
             self.blocks.append(
                 nn.Sequential(

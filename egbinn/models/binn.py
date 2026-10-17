@@ -10,7 +10,7 @@ adapter averages them into a single prediction.
 __all__ = ["BINNRegression"]
 
 import torch
-import torch.nn as nn
+from torch import nn
 
 from .sparse import GatedSparseLinearLayer, SparseMaskedLinear
 

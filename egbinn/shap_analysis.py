@@ -13,8 +13,8 @@ __all__ = [
     "LayerWrapper",
     "compute_activations",
     "load_feature_names",
-    "run_shap_for_layer",
     "run_shap_analysis",
+    "run_shap_for_layer",
 ]
 
 import json
@@ -25,7 +25,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 import torch
-import torch.nn as nn
+from torch import nn
 
 from .config import load_config
 from .evaluation import load_checkpoint
@@ -176,7 +176,7 @@ def run_shap_for_layer(
     background = background.to(device)
     test = test.to(device)
 
-    explainer = shap.GradientExplainer(wrapper, background)  # ty: ignore[invalid-argument-type]
+    explainer = shap.GradientExplainer(wrapper, background)
 
     all_shap_values = []
     for start in range(0, n_test, batch_size):

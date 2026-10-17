@@ -13,7 +13,7 @@ layer.
 __all__ = ["EGBINN"]
 
 import torch
-import torch.nn as nn
+from torch import nn
 
 from .common import LinearEfficientEnsemble, NLinear, init_random_signs_
 from .sparse import GatedSparseLinearLayer, SparseMaskedLinear

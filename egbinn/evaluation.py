@@ -8,11 +8,11 @@ scaler JSON.
 """
 
 __all__ = [
+    "compute_metrics",
+    "evaluate_model",
     "load_checkpoint",
     "load_checkpoint_artifacts",
-    "compute_metrics",
     "per_dataset_metrics",
-    "evaluate_model",
     "predict",
 ]
 

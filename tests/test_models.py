@@ -91,8 +91,8 @@ def test_egbinn_forward_multi_stage(synthetic_masks):
 
 
 def test_egbinn_backward(synthetic_masks):
-    from egbinn.models import EGBINN
     from egbinn.losses import ensemble_huber_loss
+    from egbinn.models import EGBINN
 
     stages = _make_gated_stages(synthetic_masks)
     model = EGBINN(input_dim=200, stages=stages, k=4, n_dense_blocks=0, regression_approach="multi_stage")

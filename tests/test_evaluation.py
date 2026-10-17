@@ -27,8 +27,7 @@ def _write_eval_data(tmp_path, ages, n_features=50, n_samples=8):
 def _make_bundle(tmp_path, scaler=None, config=None, package_version="0.1.0"):
     model = MLPRegression(input_dim=50, hidden_size=16, num_layers=2)
     if config is None:
-        from egbinn.config import config_from_dict
-        from egbinn.config import to_plain_dict
+        from egbinn.config import config_from_dict, to_plain_dict
 
         config = to_plain_dict(
             config_from_dict(
@@ -59,7 +58,7 @@ def _make_bundle(tmp_path, scaler=None, config=None, package_version="0.1.0"):
 
 
 def test_predict_with_bundle(tmp_path):
-    checkpoint, scaler = _make_bundle(tmp_path)
+    checkpoint, _scaler = _make_bundle(tmp_path)
     data_csv, meta_csv, imp_npy = _write_eval_data(tmp_path, ages=np.linspace(20, 80, 8))
 
     df = predict(

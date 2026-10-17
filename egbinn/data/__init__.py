@@ -1,4 +1,4 @@
-__all__ = ["MethylationDataset", "load_data", "infer_input_dim", "load_betas_array"]
+__all__ = ["MethylationDataset", "infer_input_dim", "load_betas_array", "load_data"]
 
 import logging
 import os
@@ -127,9 +127,7 @@ class MethylationDataset(data.Dataset):
         }
 
     def __getitems__(self, idxs):
-        if torch.is_tensor(idxs):
-            idxs = idxs.tolist()
-        elif isinstance(idxs, np.ndarray):
+        if torch.is_tensor(idxs) or isinstance(idxs, np.ndarray):
             idxs = idxs.tolist()
 
         x = np.asarray(self.methylation_array[idxs], dtype=np.float32)

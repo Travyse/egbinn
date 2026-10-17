@@ -24,6 +24,7 @@ dependencies = [
     "torch>=2.0",
     "numpy",
     "pandas",
+    "pyarrow",
     "pyyaml",
     "scipy",
     "scikit-learn",

@@ -1,0 +1,71 @@
+model: EGBINN
+general:
+  lr: 0.003956899417517432
+  weight_decay: 0.0001
+  first_layer_weight_decay: 0.0001
+  batch_size: 256
+  scheduler_type: cosine_warmup
+  warmup_epochs: 0
+  train_epochs: 101
+  patience: 30
+  label_column: age
+  huber_delta: 0.028902641264525446
+  num_workers: 3
+model_params:
+  d_block_mult: 1.0
+  n_dense_blocks: 0
+  dropout: 0.0
+  input_dropout: 0.0
+  k: 8
+  share_training_batches: true
+  stage_activation: none
+  regression_approach: multi_stage
+  gate_weight_scale: 0.01
+  stages:
+  - name: cpg_to_gene
+    layer_type: gated
+    gate_activation: silu
+    match_dense_init: true
+    pos_weights: false
+    value_bias: true
+    gate_bias: true
+    gate_weight_init: scaled
+    gate_bias_init: 1.2785
+    ensemblify: true
+    out_features: 20031
+  - name: gene_to_l2
+    layer_type: gated
+    gate_activation: silu
+    match_dense_init: true
+    pos_weights: false
+    value_bias: true
+    gate_bias: true
+    gate_weight_init: scaled
+    gate_bias_init: 1.2785
+    ensemblify: true
+    out_features: 504
+  - name: l2_to_l1
+    layer_type: gated
+    gate_activation: silu
+    match_dense_init: true
+    pos_weights: false
+    value_bias: true
+    gate_bias: true
+    gate_weight_init: scaled
+    gate_bias_init: 1.2785
+    ensemblify: true
+    out_features: 132
+  - name: l1_to_l0
+    layer_type: gated
+    gate_activation: silu
+    match_dense_init: true
+    pos_weights: false
+    value_bias: true
+    gate_bias: true
+    gate_weight_init: scaled
+    gate_bias_init: 1.2785
+    ensemblify: true
+    out_features: 28
+data:
+  mask_dir: resources/masks
+output: {}

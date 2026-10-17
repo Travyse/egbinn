@@ -1,0 +1,26 @@
+{
+  "fold": "full_redo",
+  "layer": "cpg_to_gene",
+  "in_features": 189291,
+  "out_features": 20031,
+  "n_edges": 209839,
+  "mask_indices_shape": [
+    2,
+    209839
+  ],
+  "mask_indices_dtype": "int64",
+  "index_convention": "row0=input_idx, row1=output_idx",
+  "linear_weight_layout": "W[output_idx, input_idx]",
+  "approach": "gene_mapped_subset",
+  "optimizer_compatibility": "AdamW",
+  "input_order_csv": "input_order.csv",
+  "output_index_csv": "output_index.csv",
+  "probe_csv_source": "/Volumes/DNAm_T7/project_2_data/gene_mapped/probes_fold_full_redo.csv",
+  "annotation_source": "/Volumes/DNAm_T7/pathway_analysis/MethylationEPIC_CpGtools.tsv",
+  "created_utc": "2026-09-07T20:45:55.887436+00:00",
+  "edge_source": "Illumina EPIC geneSymbol",
+  "note": "input_order aligns to probes_full_redo.csv / probes_redo.csv; assert before building layer",
+  "parent_in_features": 267791,
+  "parent_probe_csv_source": "/Volumes/DNAm_T7/project_2_data/probes_full_redo.csv",
+  "parent_approach": "flat_parameter_index_add"
+}

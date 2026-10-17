@@ -1,0 +1,21 @@
+model: MLP
+general:
+  lr: 0.0024477761511793486
+  weight_decay: 0.0001
+  first_layer_weight_decay: 0.0001
+  batch_size: 256
+  scheduler_type: cosine_warmup
+  warmup_epochs: 0
+  train_epochs: 101
+  patience: 30
+  label_column: age
+  huber_delta: 0.36
+  num_workers: 3
+model_params:
+  hidden_size: 128
+  num_layers: 2
+  input_dropout: 0.001
+  dropout: 0.02232125178728439
+data:
+  mask_dir: resources/masks
+output: {}

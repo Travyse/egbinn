@@ -1,0 +1,52 @@
+model: BINN
+
+general:
+  lr: 0.0001
+  weight_decay: 0.0001
+  first_layer_weight_decay: 0.0001
+  batch_size: 256
+  scheduler_type: cosine_warmup
+  warmup_epochs: 0
+  train_epochs: 101
+  patience: 30
+  label_column: age
+  huber_delta: 0.36
+  num_workers: 3
+
+model_params:
+  stage_activation: relu
+  dropout: 0.0
+  input_dropout: 0.001
+  stages:
+    - name: cpg_to_gene
+      layer_type: sparse
+      match_dense_init: true
+      pos_weights: false
+      bias: true
+    - name: gene_to_l2
+      layer_type: sparse
+      match_dense_init: true
+      pos_weights: false
+      bias: true
+    - name: l2_to_l1
+      layer_type: sparse
+      match_dense_init: true
+      pos_weights: false
+      bias: true
+    - name: l1_to_l0
+      layer_type: sparse
+      match_dense_init: true
+      pos_weights: false
+      bias: true
+
+data:
+  data_format: memmap
+  metadata_path: /path/to/metadata.csv
+  train_methylation_path: /path/to/training_data.memmap
+  val_methylation_path: /path/to/validation_data.memmap
+  imputation_path: /path/to/avg_beta_values.npy
+  mask_dir: resources/masks
+
+output:
+  save_dir: ./outputs/binn
+  checkpoint_name: binn_checkpoint.pth

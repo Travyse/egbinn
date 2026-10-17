@@ -1,0 +1,45 @@
+model: BINN
+general:
+  lr: 0.004081707364250659
+  weight_decay: 0.0001
+  first_layer_weight_decay: 0.0001
+  batch_size: 256
+  scheduler_type: cosine_warmup
+  warmup_epochs: 0
+  train_epochs: 101
+  patience: 30
+  label_column: age
+  huber_delta: 0.028256306295658503
+  num_workers: 3
+model_params:
+  stage_activation: relu
+  dropout: 0.00246808215065548
+  input_dropout: 0.03414158135159166
+  stages:
+  - name: cpg_to_gene
+    layer_type: sparse
+    match_dense_init: true
+    pos_weights: false
+    bias: true
+    out_features: 20031
+  - name: gene_to_l2
+    layer_type: sparse
+    match_dense_init: true
+    pos_weights: false
+    bias: true
+    out_features: 504
+  - name: l2_to_l1
+    layer_type: sparse
+    match_dense_init: true
+    pos_weights: false
+    bias: true
+    out_features: 132
+  - name: l1_to_l0
+    layer_type: sparse
+    match_dense_init: true
+    pos_weights: false
+    bias: true
+    out_features: 28
+data:
+  mask_dir: resources/masks
+output: {}

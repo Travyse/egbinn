@@ -1,0 +1,26 @@
+{
+  "fold": "full_redo",
+  "layer": "l1_to_l0",
+  "in_features": 132,
+  "out_features": 28,
+  "n_edges": 133,
+  "mask_indices_shape": [
+    2,
+    133
+  ],
+  "mask_indices_dtype": "int64",
+  "index_convention": "row0=input_idx, row1=output_idx",
+  "linear_weight_layout": "W[output_idx, input_idx]",
+  "approach": "flat_parameter_index_add",
+  "optimizer_compatibility": "AdamW",
+  "input_order_csv": "input_order.csv",
+  "output_index_csv": "output_index.csv",
+  "probe_csv_source": "/Volumes/DNAm_T7/project_2_data/probes_full_redo.csv",
+  "annotation_source": "/Volumes/DNAm_T7/pathway_analysis/MethylationEPIC_CpGtools.tsv",
+  "created_utc": "2026-09-07T17:21:58.980590+00:00",
+  "edge_source": "Reactome pathway_relations parents (level 1 -> level 0)",
+  "reactome_levels": [
+    1,
+    0
+  ]
+}

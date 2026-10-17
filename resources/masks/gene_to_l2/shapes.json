@@ -1,0 +1,23 @@
+{
+  "fold": "full_redo",
+  "layer": "gene_to_l2",
+  "in_features": 20031,
+  "out_features": 504,
+  "n_edges": 26761,
+  "mask_indices_shape": [
+    2,
+    26761
+  ],
+  "mask_indices_dtype": "int64",
+  "index_convention": "row0=input_idx, row1=output_idx",
+  "linear_weight_layout": "W[output_idx, input_idx]",
+  "approach": "flat_parameter_index_add",
+  "optimizer_compatibility": "AdamW",
+  "input_order_csv": "input_order.csv",
+  "output_index_csv": "output_index.csv",
+  "probe_csv_source": "/Volumes/DNAm_T7/project_2_data/probes_full_redo.csv",
+  "annotation_source": "/Volumes/DNAm_T7/pathway_analysis/MethylationEPIC_CpGtools.tsv",
+  "created_utc": "2026-09-07T17:21:58.949490+00:00",
+  "edge_source": "Reactome pathway gene sets (Ensembl) via mygene symbol->Ensembl bridge",
+  "reactome_level": 2
+}

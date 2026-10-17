@@ -176,7 +176,7 @@ def run_shap_for_layer(
     background = background.to(device)
     test = test.to(device)
 
-    explainer = shap.GradientExplainer(wrapper, background)
+    explainer = shap.GradientExplainer(wrapper, background)  # ty: ignore[invalid-argument-type]
 
     all_shap_values = []
     for start in range(0, n_test, batch_size):

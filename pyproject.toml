@@ -52,6 +52,9 @@ line-length = 120
 # subclass overrides; every Module subclass trips this rule (see
 # astral-sh/ty#1208). Known false positive for torch codebases.
 invalid-mutable-override = "ignore"
+# Suppress unused ty:ignore warnings — the shap.GradientExplainer ignore
+# directive is needed on CI (stricter shap stubs) but unused locally.
+unused-ignore-comment = "ignore"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

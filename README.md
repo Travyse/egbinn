@@ -322,10 +322,24 @@ Each notebook has a configuration cell at the top with file paths anchored to th
 
 ## Pretrained Models
 
-`resources/pretrained/{egbinn,binn,mlp}/` contain the manuscript's production checkpoints, each as a self-contained bundle (weights + training scaler + resolved config + provenance). All three were verified to reproduce the research pipeline's held-out testing evaluation (5,056 samples, 20 datasets) exactly: EGBINN MAE 3.94, BINN 4.73, MLP 5.48 years.
-
-If the repository is cloned without weights (they are ~130 MB total), re-download them from the GitHub Releases page, or regenerate them with the export tool in the companion research repository.
+`resources/pretrained/{egbinn,binn,mlp}/` contain the manuscript's production checkpoints, each as a self-contained bundle (weights + training scaler + resolved config + provenance).
 
 ## Citation
 
-[Citation to be added upon publication]
+If you use this code or the pretrained models, please cite:
+
+Edwards TA, Long Q, Shen L. EG-BINN: Parameter-Efficient Ensembling of Gated Biologically Informed Neural Networks for Epigenetic Age Estimation. bioRxiv 2026.10.17.759869; doi: [10.64898/2026.10.17.759869](https://doi.org/10.64898/2026.10.17.759869)
+
+```bibtex
+@article {Edwards2026.10.17.759869,
+	author = {Edwards, Travyse Anthony and Long, Qi and Shen, Li},
+	title = {EG-BINN: Parameter-Efficient Ensembling of Gated Biologically Informed Neural Networks for Epigenetic Age Estimation},
+	elocation-id = {2026.10.17.759869},
+	year = {2026},
+	doi = {10.64898/2026.10.17.759869},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2026/10/22/2026.10.17.759869},
+	eprint = {https://www.biorxiv.org/content/early/2026/10/22/2026.10.17.759869.full.pdf},
+	journal = {bioRxiv}
+}
+```
